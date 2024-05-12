@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div class="col-5">
+    <h4 class="heading"><strong> Add to-do</strong></h4>
+    <form [formGroup]="infoForm" novalidate (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          id="title"
+          name="title"
+          formControlName="title"
+          class="form-control"
+          placeholder="Enter title"
+        />
+
+        <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+          <div *ngIf="title?.errors?.['required']">
+            <p style="color: red">First Name is required</p>
+          </div>
+          <div *ngIf="title?.errors?.['minlength']">
+            <p style="color: red">First Name must be at least 10 characters</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mt-1">
+        <label for="content">Content</label>
+        <input
+          id="content"
+          name="content"
+          formControlName="content"
+          class="form-control"
+          placeholder="Enter content"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h4 class="heading"><strong>To-do list</strong></h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+        <th scope="col">Created at</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="todoList | async as todoList; else loadingTmpl">
+        <tr *ngFor="let todo of todoList">
+          <th scope="row">{{ todo.id }}</th>
+          <td>{{ todo.title }}</td>
+          <td>{{ todo.content }}</td>
+          <td>{{ todo.createAt | date }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              routerLink="/{{ todo.id }}/details"
+            >
+              Detail
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteTodo(todo)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <ng-template #loadingTmpl> Loading... </ng-template>
+</div>

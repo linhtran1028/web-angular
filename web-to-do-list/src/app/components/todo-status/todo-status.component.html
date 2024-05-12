@@ -1,0 +1,8 @@
+<p>
+  Message: <span [ngStyle]="{ color: getStatusColor(status) }">
+    <ng-container *ngIf="status === 'pending'; else warningCheck">
+      Work needs to be done immediately
+    </ng-container>
+    <ng-template #warningCheck> Work needs rechecking </ng-template>
+  </span>
+</p>

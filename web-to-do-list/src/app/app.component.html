@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div id="left-menu" class="col-md-2">
+      <nav class="navbar navbar-light">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link">To do list</a>
+            <ul>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="/add"
+                  routerLinkActive="text-danger"
+                  >Add</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="/list"
+                  routerLinkActive="text-danger"
+                  >List</a
+                >
+              </li>
+            </ul>
+
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Admin</a>
+            <ul>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="/admin"
+                  routerLinkActive="text-danger"
+                  >List source</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="main-content" class="col-md-10">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

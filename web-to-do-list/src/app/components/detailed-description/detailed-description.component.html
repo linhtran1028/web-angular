@@ -1,0 +1,10 @@
+<ng-container *ngIf="item | async as item; else loadingTmpl">
+  <div class="card mt-4">
+    <div class="card-body">
+      <h5>Description</h5>
+      <p class="card-title">Work will do: {{ item.title }}</p>
+      <app-todo-status [status]="item.status"></app-todo-status>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loadingTmpl> Loading... </ng-template>
